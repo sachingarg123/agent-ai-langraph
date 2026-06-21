@@ -19,6 +19,7 @@ class SimpleState(TypedDict):
     draft: str
     score: int
     approved: bool
+    iteration: int
 
 # Message-aware state (for conversational agents)
 class AgentState(TypedDict):
@@ -61,7 +62,7 @@ def revise_draft(state: SimpleState) -> dict:
     response = llm.invoke(
         f"Improve this paragraph for clarity:\n{state['draft']}"
     )
-    return {"draft": response.content}
+    return {"draft": response.content, "iteration": state["iteration"] + 1}
 
 def quality_gate(state: SimpleState) -> str:
     """Route based on quality score."""
@@ -100,7 +101,7 @@ with open("graph.png", "wb") as f:
     f.write(graph.get_graph().draw_mermaid_png())
 
 # Run
-result = graph.invoke({"topic": "quantum computing", "draft": "", "score": 0, "approved": False})
+result = graph.invoke({"topic": "quantum computing", "draft": "", "score": 0, "approved": False, "iteration": 0})
 
 print("# Output")
 print(result["draft"])

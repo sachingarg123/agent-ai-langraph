@@ -11,5 +11,11 @@ dependencies = [
     "langchain-groq>=1.1.2",
     "langgraph>=1.1.8",
     "pygithub>=2.9.1",
+    "python-qpid-proton>=0.39.0",
+    "pysocks>=1.7.1",
     "python-dotenv>=1.2.2",
+    "stomp-py>=8.2.0",
+    "ipykernel>=7.3.0",
 ]
+    
+    

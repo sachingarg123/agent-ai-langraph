@@ -161,10 +161,10 @@ print(f"  BODY    :\n{review_payload['draft_body']}")
 print(f"{'='*50}")
 
 #Scenario 1 :  approve to send emaiil as is
-#graph.invoke(
-#    Command(resume={"decision": "approve"}),
-#    config=config,
-#)
+graph.invoke(
+   Command(resume={"decision": "approve"}),
+           config=config,
+)
 
 # Scenario 2 : Edit the body then approve
 #graph.invoke(
@@ -177,7 +177,7 @@ print(f"{'='*50}")
 
 # Scenario 3 : Discard
 
-graph.invoke(
-     Command(resume={"decision": "discard"}),
-     config=config,
- )
+# graph.invoke(
+#      Command(resume={"decision": "discard"}),
+#      config=config,
+#  )
